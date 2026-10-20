@@ -1,0 +1,234 @@
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(212, 211, 255, 0.7), transparent 38rem),
+    #f4f5fa;
+}
+
+.container {
+  --ink: #202943;
+  --muted: #7b849c;
+  --line: #e9eaf2;
+
+  box-sizing: border-box;
+  width: min(100% - 32px, 680px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 72px 0;
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.container *,
+.container *::before,
+.container *::after {
+  box-sizing: inherit;
+}
+
+.container h1 {
+  margin: 0 0 30px;
+  color: var(--ink);
+  font-size: clamp(2rem, 5vw, 2.7rem);
+  font-weight: 750;
+  letter-spacing: -0.055em;
+  text-align: center;
+}
+
+.add-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(41, 47, 88, 0.08);
+}
+
+.add-contact input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  outline: none;
+  background: #f9f9fc;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.94rem;
+  transition: 160ms ease;
+}
+
+.add-contact input::placeholder {
+  color: #9ba2b4;
+}
+
+.add-contact input:focus {
+  border-color: #8b84f2;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(98, 89, 232, 0.12);
+}
+
+.container button {
+  min-height: 44px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:  160ms ease;
+}
+
+.container button:hover {
+  transform: translateY(-1px);
+}
+
+.container button:active {
+  transform: translateY(0);
+}
+
+.container button:focus-visible {
+  outline: 3px solid rgba(98, 89, 232, 0.32);
+  outline-offset: 3px;
+}
+
+.add-contact button.add-btn {
+  background: linear-gradient(135deg, #7168f2, #554bd4);
+  box-shadow: 0 7px 16px rgba(98, 89, 232, 0.22);
+  white-space: nowrap;
+}
+
+.add-contact button.add-btn:hover {
+  box-shadow: 0 10px 20px rgba(98, 89, 232, 0.3);
+}
+
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contacts-container:empty::after {
+  padding: 38px 20px;
+  border: 1px dashed #d9dbea;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--muted);
+  content: "No contacts yet. Add your first one above.";
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.contact-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 17px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 16px rgba(41, 47, 88, 0.045);
+  transition: 160ms ease;
+}
+
+.contact-details:hover {
+  transform: translateY(-2px);
+  border-color: #d9d6ff;
+  box-shadow: 0 12px 24px rgba(41, 47, 88, 0.09);
+}
+
+.contact-info {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-info p {
+  margin: 0;
+  padding: 8px 11px;
+  border: 1px solid #e9e8ff;
+  border-radius: 9px;
+  background: #f5f4ff;
+  color: #514bb0;
+  font-size: 0.84rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.contact-info p.id {
+  border-color: #eaecf2;
+  background: #f4f5f8;
+  color: #737c91;
+  font-size: 0.77rem;
+}
+
+.contact-details button.delete-btn {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 0 13px;
+  background: #fff1f2;
+  color: #c3485d;
+  font-size: 0.83rem;
+}
+
+.contact-details button.delete-btn:hover {
+  background: #ffe3e7;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 28px, 480px);
+    padding: 48px 0;
+  }
+
+  .container h1 {
+    margin-bottom: 23px;
+  }
+
+  .add-contact {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .add-contact button.add-btn {
+    grid-column: 1 / -1;
+  }
+
+  .contact-details {
+    align-items: flex-start;
+    padding: 14px;
+  }
+
+  .contact-info {
+    gap: 7px;
+  }
+}
+
+@media (max-width: 390px) {
+  .add-contact {
+    grid-template-columns: 1fr;
+  }
+
+  .add-contact button.add-btn {
+    grid-column: auto;
+  }
+
+  .contact-details {
+    flex-direction: column;
+  }
+
+  .contact-details button.delete-btn {
+    align-self: flex-end;
+  }
+}
+
